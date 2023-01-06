@@ -1,8 +1,6 @@
 <?php
 
     // define global variables for db connection/configuration
-    // root url for the system
-    define("ROOT_URL", "http://localhost/ims/");
 
     // DB parameters
     // hostname

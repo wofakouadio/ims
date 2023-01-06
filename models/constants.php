@@ -1,5 +1,7 @@
 <?php
     // this file constants holds functions and constants
+    // root url for the system
+    define("ROOT_URL", "http://localhost/ims/");
     // constant for system name
     define("APP_NAME", "Inventory Management System");
     // constant that generates form path

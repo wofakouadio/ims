@@ -1,6 +1,6 @@
 <?php
 
-require_once('db-parameters.php');
+require('db-parameters.php');
 
     class DBCon {
 
@@ -9,23 +9,24 @@ require_once('db-parameters.php');
         protected $password = PASSWORD;
         // protected $database = DATABASE;
         protected $dsn = DNS;
-        public $db_con = null;
-        public $db_status;
+        protected $db_con = null;
+        protected $db_transaction;
+        protected $db_status;
 
         public function __construct(){
             // $hostname = $this->$hostname;
             // $password = $this->$password;
             // $username = $this->$username;
             // $database = $this->$database;
-            $this->connectionString();
+            $this->db_con = $this->connectionString();
         }
 
         public function connectionString(){
 
             try {
                 // setting up dn connection
-                $this->db_con = new PDO($this->dsn, $this->username, $this->password);
-                $this->db_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->db_transaction = new PDO($this->dsn, $this->username, $this->password);
+                $this->db_transaction->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $this->db_status = array(
                     'status' => 'success',
@@ -39,10 +40,12 @@ require_once('db-parameters.php');
                     'msg' => 'Connection to DB failed to created',
                     'error' => $e->getMessage()
                 );
-                $this->db_con = null;
+                $this->db_transaction = null;
             }
 
-            return json_encode($this->db_status);
+            // return json_encode($this->db_status);
+            return $this->db_transaction;
+
         }
 
 

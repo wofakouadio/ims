@@ -10,7 +10,7 @@
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
-    <script src="../models/js/login-page.js"></script>
+    <script src="../models/js/login/login-page.js"></script>
 
 </body>
 
