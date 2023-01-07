@@ -1,3 +1,4 @@
+<?php include 'session.php';?>
 <?php include 'header.php';?>
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->

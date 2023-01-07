@@ -40,17 +40,68 @@
                     ];
                 }else{
                     $Row = $stmt_sql->fetch(PDO::FETCH_OBJ);
-                    $data = [
-                        'status' => 'success',
-                        'msg' => 'User found',
-                        'error' => null,
-                        'data' => [
-                            'user_name' => $user_name,
-                            'user_fullname' => $Row->user_fullname,
-                            'user_status' =>$Row->user_status,
-                            'user_logBefore' =>$Row->user_loginBefore
-                        ]
-                    ];
+
+                    // if user status is 1 then
+                    // if user loginBefore is 1 then
+                    // allow the user to proceed to enter password page
+                    if($Row->user_status == 1 && $Row->user_loginBefore == 1){
+
+                        $_SESSION["user_fullname"] = $Row->user_fullname;
+                        $_SESSION["user_name"] = $Row->user_name;
+                        $_SESSION["user_id"] = $Row->user_id;
+                        $_SESSION["user_type"] = $Row->user_type;
+
+                        $data = [
+                            'status' => 'success',
+                            'msg' => 'Welcome back ' . $Row->user_fullname,
+                            'error' => null,
+                            'data' => [
+                                'user_name' => $user_name,
+                                'user_fullname' => $Row->user_fullname,
+                                'user_id' => $Row->user_id,
+                                'action' => 'EnterPassword',
+                                'url' => 'user-login'
+                            ]
+                        ];
+
+                    }
+                    // if user status is 1 then
+                    // user login before is 0 then
+                    // allow the user to be redirected to create password page
+                    elseif($Row->user_status == 1 && $Row->user_loginBefore == 0){
+
+                        $_SESSION["user_fullname"] = $Row->user_fullname;
+                        $_SESSION["user_name"] = $Row->user_name;
+                        $_SESSION["user_id"] = $Row->user_id;
+                        $_SESSION["user_type"] = $Row->user_type;
+
+                        $data = [
+                            'status' => 'success',
+                            'msg' => 'Welcome ' . $Row->user_fullname . '. PLease Create Password.',
+                            'error' => null,
+                            'data' => [
+                                'user_name' => $user_name,
+                                'user_fullname' => $Row->user_fullname,
+                                'user_id' => $Row->user_id,
+                                'action' => "CreatePassword",
+                                'url' => 'user-create-password'
+                            ]
+                        ];
+
+                    }
+                    // else user status is disabled set to 0
+                    // which does not allow user to proceed and terminate the session
+                    else{
+
+                        $data = [
+                            'status' => 'failed',
+                            'msg' => 'Your account has been disabled.',
+                            'error' => null,
+                            'data' => []
+                        ];
+
+                    }
+
                 }
 
             } catch (\PDOException $th) {

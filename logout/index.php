@@ -6,9 +6,10 @@
     session_start();
 
     // unset any variable
-    unset($variable);
-    unset($variable);
-    unset($variable);
+    unset($_SESSION["user_fullname"]);
+    unset($_SESSION["user_name"]);
+    unset($_SESSION["user_type"]);
+    unset($_SESSION["user_id"]);
 
     // destroy session
     session_destroy();
