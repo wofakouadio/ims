@@ -24,7 +24,7 @@
 
         public function UserVerification($user_name){
             $this->user_name = $user_name;
-            $select_sql = "SELECT * FROM `logins_view` WHERE `user_name` = :user_name";
+            $select_sql = "SELECT `user_id`, `user_fullname`, `user_type`, `user_status`, `user_loginBefore` FROM `logins_view` WHERE `user_name` = :user_name";
             $connection = $this->connectionString();
             $stmt_sql = $connection->prepare($select_sql);
             $stmt_sql->bindValue(":user_name", $user_name, PDO::PARAM_STR);
@@ -47,7 +47,7 @@
                     if($Row->user_status == 1 && $Row->user_loginBefore == 1){
 
                         $_SESSION["user_fullname"] = $Row->user_fullname;
-                        $_SESSION["user_name"] = $Row->user_name;
+                        $_SESSION["user_name"] = $user_name;
                         $_SESSION["user_id"] = $Row->user_id;
                         $_SESSION["user_type"] = $Row->user_type;
 
@@ -71,7 +71,7 @@
                     elseif($Row->user_status == 1 && $Row->user_loginBefore == 0){
 
                         $_SESSION["user_fullname"] = $Row->user_fullname;
-                        $_SESSION["user_name"] = $Row->user_name;
+                        $_SESSION["user_name"] = $user_name;
                         $_SESSION["user_id"] = $Row->user_id;
                         $_SESSION["user_type"] = $Row->user_type;
 
@@ -104,6 +104,145 @@
 
                 }
 
+            } catch (\PDOException $th) {
+                //throw $th;
+                $data = [
+                    'status' => 'failed',
+                    'msg' => 'Something went wrong',
+                    'error' => $th->getMessage()
+                ];
+            }
+
+            return json_encode($data);
+
+        }
+
+
+        // function to verify user password
+        public function UserLogin($user_name, $user_password){
+
+            // initialize variable
+            $this->user_name = $user_name;
+            $this->user_password = $user_password;
+            // query
+            $select_sql = "SELECT * FROM `logins_view` WHERE `user_name` = :user_name";
+            $connection = $this->connectionString();
+            $stmt_sql = $connection->prepare($select_sql);
+            $stmt_sql->bindValue(":user_name", $user_name, PDO::PARAM_STR);
+            $stmt_sql->execute();
+
+            try {
+                $Row = $stmt_sql->fetch(PDO::FETCH_OBJ);
+                $HashedPass = $Row->user_password;
+
+                // if user password matches with fetched password
+                if(password_verify($user_password, $HashedPass)){
+                    // check user type and redirect where appropriate
+                    // usr type = super admin
+                    if($Row->user_type == "SUPER-ADMIN"){
+
+                        $_SESSION["user_fullname"] = $Row->user_fullname;
+                        $_SESSION["user_name"] = $user_name;
+                        $_SESSION["user_id"] = $Row->user_id;
+                        $_SESSION["user_type"] = $Row->user_type;
+
+                        $data = [
+                            'status' => 'success',
+                            'msg' => 'Login Successful',
+                            'error' => null,
+                            'data' => [
+                                'action' => 'login-success',
+                                'url' => 'sa/'
+                            ]
+                        ];
+
+                    }
+                    // user type = admin
+                    elseif($Row->user_type == "ADMIN"){
+
+                        $_SESSION["user_fullname"] = $Row->user_fullname;
+                        $_SESSION["user_name"] = $user_name;
+                        $_SESSION["user_id"] = $Row->user_id;
+                        $_SESSION["user_type"] = $Row->user_type;
+
+                        $data = [
+                            'status' => 'success',
+                            'msg' => 'Login Successful',
+                            'error' => null,
+                            'data' => [
+                                'action' => 'login-success',
+                                'url' => 'ad/'
+                            ]
+                        ];
+
+                    }
+                    // user type = sales
+                    elseif($Row->user_type == "SALES"){
+
+                        $_SESSION["user_fullname"] = $Row->user_fullname;
+                        $_SESSION["user_name"] = $user_name;
+                        $_SESSION["user_id"] = $Row->user_id;
+                        $_SESSION["user_type"] = $Row->user_type;
+
+                        $data = [
+                            'status' => 'success',
+                            'msg' => 'Login Successful',
+                            'error' => null,
+                            'data' => [
+                                'action' => 'login-success',
+                                'url' => 'sales/'
+                            ]
+                        ];
+
+                    }
+                    // user type = vendor
+                    elseif($Row->user_type == "VENDOR"){
+
+                        $_SESSION["user_fullname"] = $Row->user_fullname;
+                        $_SESSION["user_name"] = $user_name;
+                        $_SESSION["user_id"] = $Row->user_id;
+                        $_SESSION["user_type"] = $Row->user_type;
+
+                        $data = [
+                            'status' => 'success',
+                            'msg' => 'Login Successful',
+                            'error' => null,
+                            'data' => [
+                                'action' => 'login-success',
+                                'url' => 'v/'
+                            ]
+                        ];
+
+                    }
+                    // user type = customer
+                    elseif($Row->user_type == "CUSTOMER"){
+
+                        $_SESSION["user_fullname"] = $Row->user_fullname;
+                        $_SESSION["user_name"] = $user_name;
+                        $_SESSION["user_id"] = $Row->user_id;
+                        $_SESSION["user_type"] = $Row->user_type;
+
+                        $data = [
+                            'status' => 'success',
+                            'msg' => 'Login Successful',
+                            'error' => null,
+                            'data' => [
+                                'action' => 'login-success',
+                                'url' => 'ad/'
+                            ]
+                        ];
+
+                    }
+
+                }else{
+
+                    $data = [
+                        'status' => 'failed',
+                        'msg' => 'You have entered a wrong password',
+                        'error' => null
+                    ];
+
+                }
             } catch (\PDOException $th) {
                 //throw $th;
                 $data = [

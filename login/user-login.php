@@ -17,9 +17,11 @@
                     <form class="form-horizontal m-t-20" id="login-form" action="<?php echo FORM_PATH ?>" method="POST">
                         <div class="row p-b-30">
                             <div class="col-12">
+                                <!-- form header content -->
+                                <h4 class="font-light-300 text-white">Welcome back, <?php if(is_string($user_fullname)) echo $user_fullname ;?></h4>
                                 <!-- alert -->
                                 <div class="ul-alert alert alert-success alert-dismissible fade show" role="alert">
-                                    <span class="alert-content">Welcome back, <?php if(is_string($user_fullname)) echo $user_fullname ;?></span>
+                                    <span class="alert-content"></span>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -28,12 +30,10 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                                    <input type="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="u-pass">
                                     <input type="hidden" name="u-name" id="u-name" value="<?php echo $user_name;?>">
-                                    <input type="hidden" name="u-id" id="u-id" value="<?php if(is_string($user_id))echo $user_id;?>">
-                                    <input type="hidden" name="u-type" id="u-type" value="<?php if(is_string($user_type))echo $user_type;?>">
                                     <div class="input-group-prepend">
-                                        <button class="input-group-text bg-warning text-white" id="basic-addon2" type="button"><i class="ti-eye"></i></button>
+                                        <button class="input-group-text bg-warning text-white" id="btn-pass" type="button"><i class="fas fa-eye-slash" id="eye-icon"></i></button>
                                     </div>
                                 </div>
                             </div>
