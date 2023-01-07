@@ -7,6 +7,8 @@
 
         header("location:user-verification");
 
+        exit();
+
     }else{
 
         $user_fullname = $_SESSION["user_fullname"];
