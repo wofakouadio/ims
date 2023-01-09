@@ -1,4 +1,4 @@
-$("document").ready(()=>{
+$(document).ready(()=>{
 
     /**
     * Handle the jQuery UI widget'sidebar type
