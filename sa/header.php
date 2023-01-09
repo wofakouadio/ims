@@ -14,8 +14,11 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../layouts/assets/images/ims-logo.png">
     <title><?php echo APP_NAME?></title>
-    <!-- Custom CSS -->
+    <!-- Charts -->
     <link href="../layouts/assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <!-- dataTables -->
+    <!-- <link href="../layouts/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet"> -->
+    <link href="../layouts/dist/DataTables/datatables.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../layouts/dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

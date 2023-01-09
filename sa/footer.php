@@ -24,8 +24,12 @@
     <script src="../layouts/assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="../layouts/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="../layouts/dist/js/pages/chart/chart-page-init.js"></script>
+    <!-- dataTables -->
+    <!-- <script src="../layouts/assets/extra-libs/DataTables/datatables.min.js"></script> -->
+    <script src="../layouts/dist/DataTables/datatables.min.js"></script>
     <!-- custom scripts -->
     <script src="../models/js/super-admin/sa-script.js"></script>
+    <script src="../models/js/super-admin/sa-dataTable.js"></script>
 
 </body>
 
