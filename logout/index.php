@@ -15,7 +15,7 @@
     session_destroy();
 
     // redirect  to default page
-    header("location:../login/user-verification");
+    header("location:../");
 
     // exit
     exit();

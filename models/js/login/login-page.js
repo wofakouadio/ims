@@ -90,7 +90,7 @@ $("document").ready(()=>{
                         $(".ul-alert").removeClass("alert-warning")
                         window.location.href = "../"+user_login.data.url
                     }
-                    console.log(user_login)
+                    // console.log(user_login)
                 }
             })
 
