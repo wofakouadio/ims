@@ -6,4 +6,10 @@ $(document).ready(()=>{
     */
         $("#main-wrapper").attr("data-sidebartype", "mini-sidebar").attr("class", "mini-sidebar");
 
+    /**
+    * Users
+    */
+        // User registration
+            $(".ur-alert").hide()
+
 })

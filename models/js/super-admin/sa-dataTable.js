@@ -14,7 +14,7 @@ $(document).ready(()=>{
 				'copy',
 				{extend: 'csv', footer: true, title: 'Purchase Report'},
 				{extend: 'excel', footer: true, title: 'Purchase Report'},
-				{extend: 'pdf', footer: true, orientation: 'landscape', pageSize: 'A4', title: 'Purchase Report'},
+				{extend: 'pdf', footer: true, orientation: 'landscape', pageSize: 'LEGAL', title: 'Purchase Report'},
 				{extend: 'print', footer: true, orientation: 'landscape',title: 'Purchase Report'},
             ],
         stateSave: true,

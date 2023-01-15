@@ -26,8 +26,8 @@ $columns = array(
     array(
         'db' => 'user_dob',
         'dt' => 1,
-        'formatter' => function($d, $row){
-            return $d;
+        'formatter' => function($d){
+            return date("Y") - date("Y", strtotime($d));
         },
         'field' => 'user_dob'
     ),

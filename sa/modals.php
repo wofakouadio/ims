@@ -14,6 +14,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <!-- alert -->
+                        <div class="ur-alert alert alert-success alert-dismissible fade show" role="alert">
+                            <span class="ur-alert-content"></span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                         <div class="form-row">
                             <div class="col form-group">
                                 <label>FullName</label>

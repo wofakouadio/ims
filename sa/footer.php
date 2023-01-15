@@ -27,6 +27,8 @@
     <!-- dataTables -->
     <!-- <script src="../layouts/assets/extra-libs/DataTables/datatables.min.js"></script> -->
     <script src="../layouts/dist/DataTables/datatables.min.js"></script>
+    <!-- toastr alert -->
+    <script src="../layouts/assets/libs/toastr/build/toastr.min.js"></script>
     <!-- custom scripts -->
     <script src="../models/js/super-admin/sa-script.js"></script>
     <script src="../models/js/super-admin/sa-dataTable.js"></script>
