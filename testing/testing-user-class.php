@@ -21,7 +21,7 @@
 
     echo "UserName : " . $UserObject->CreateUserName($user_fullname) . "<br/>";
 
-    echo "User Registration : " . $UserObject->UserRegistration($user_fullname, $user_dob, $user_gender, $user_placeofBirth, $user_mobile, $user_contact, $user_mail, $user_address_one, $user_address_two, $user_type, $user_profile, $user_id_profile) . "<br/>";
+    // echo "User Registration : " . $UserObject->UserRegistration($user_fullname, $user_dob, $user_gender, $user_placeofBirth, $user_mobile, $user_contact, $user_mail, $user_address_one, $user_address_two, $user_type, $user_profile, $user_id_profile) . "<br/>";
 
     echo $UserObject->FetchUserData("IMS00001-0123");
 

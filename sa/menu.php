@@ -172,6 +172,12 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a href="users-listview" class="sidebar-link">
+                                <i class="mdi mdi-account-outline"></i>
+                                <span class="hide-menu"> ListView </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a href="#" class="sidebar-link">
                                 <i class="mdi mdi-settings-box"></i>
                                 <span class="hide-menu"> Settings </span>

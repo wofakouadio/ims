@@ -42,7 +42,7 @@ class Users extends DBCon
             $abbr_name = strtolower(substr($countName[0], 0, 1) . substr($countName[1], 0, 1) . substr($countName[2], 0, 1) . substr(end($countName), 0));
         }
 
-        return $abbr_name . $RandNum;
+        return strtolower($abbr_name . $RandNum);
     }
 
     // function to create user id
@@ -67,20 +67,19 @@ class Users extends DBCon
             $table_row = $stmt_table->fetch(PDO::FETCH_OBJ);
             $last_table_id = $table_row->user_id;
             $decomposite = substr($last_table_id, -6);
-            $count_from = $decomposite + 1;
+            $count_from = intval($decomposite) + 1;
             $curDate = date("my");
             $id = "IMS" . sprintf("%05d", $count_from) . "-" . $curDate;
         }
         return $id;
     }
     // function to register new user
-    public function UserRegistration($user_fullname, $user_dob, $user_gender, $user_placeofBirth, $user_mobile, $user_contact, $user_mail, $user_address_one, $user_address_two, $user_type, $user_profile, $user_id_profile)
+    public function UserRegistration($user_id, $user_name, $user_fullname, $user_dob, $user_gender, $user_placeofBirth, $user_mobile, $user_contact, $user_mail, $user_address_one, $user_address_two, $user_type, $user_profile, $user_id_profile)
     {
 
         // $this->user_id = $user_id;
-        $user_id = $this->UserID();
-        // $this->user_name = $user_name;
-        $user_name = $this->CreateUserName($user_fullname);
+        $this->user_id = $user_id;
+        $this->user_name = $user_name;
         $this->user_fullname = $user_fullname;
         $this->user_dob = $user_dob;
         $this->user_gender = $user_gender;
@@ -203,7 +202,7 @@ class Users extends DBCon
                     'user_id_profile' => $UserData->user_id_profile,
                     'user_timestamp' => $UserData->user_timestamp,
                     'user_status' => $UserData->user_status,
-                    'user_loginBefore' => $UserData->user_timestamp,
+                    'user_loginBefore' => $UserData->user_loginBefore ,
                 ]
             ];
 
