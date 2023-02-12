@@ -211,4 +211,134 @@ class Users extends DBCon
         return json_encode($data);
 
     }
+
+    // Update User Account Type
+    public function UserAccountType($user_id, $user_type){
+
+        $this->user_id = $user_id;
+        $this->user_type = $user_type;
+        $connection = $this->connectionString();
+        try {
+
+            // sql
+            $sql = "UPDATE `users` SET `user_type` = :user_type WHERE `user_id` = :user_id";
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(":user_type", $user_type, PDO::PARAM_STR);
+            $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Type updated successfully',
+                'error' => null
+            ];
+
+        } catch (\PDOException $th) {
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Type failed updating',
+                'error' => $th->getMessage()
+            ];
+
+        }
+        echo json_encode($data);
+    }
+
+    // Update User Account Status
+    public function UserAccountStatus($user_status, $user_id){
+
+        $this->user_id = $user_id;
+        $this->user_type = $user_type;
+        $connection = $this->connectionString();
+        try {
+
+            // sql
+            $sql = "UPDATE `users` SET `user_status` = :user_status WHERE `user_id` = :user_id";
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(":user_status", $user_status, PDO::PARAM_STR);
+            $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Status updated successfully',
+                'error' => null
+            ];
+
+        } catch (\PDOException $th) {
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Status failed updating',
+                'error' => $th->getMessage()
+            ];
+
+        }
+        echo json_encode($data);
+    }
+
+    // Reset User Account Password
+    public function UserAccountStatus($user_id){
+
+        $this->user_id = $user_id;
+        $connection = $this->connectionString();
+        try {
+
+            // sql
+            $sql = "UPDATE `users` SET `user_loginBefore` = :user_loginBefore WHERE `user_id` = :user_id";
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(":user_loginBefore", 0, PDO::PARAM_INT);
+            $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account reset successfully',
+                'error' => null
+            ];
+
+        } catch (\PDOException $th) {
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account failed reset',
+                'error' => $th->getMessage()
+            ];
+
+        }
+        echo json_encode($data);
+    }
+
+    // User Account Deletion
+    public function UserAccountDelete($user_id){
+
+        $this->user_id = $user_id;
+        $connection = $this->connectionString();
+        try {
+
+            // sql
+            $sql = "DELETE FROM `users` WHERE `user_id` = :user_id";
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account deleted successfully',
+                'error' => null
+            ];
+
+        } catch (\PDOException $th) {
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account failed to be deleted',
+                'error' => $th->getMessage()
+            ];
+
+        }
+        echo json_encode($data);
+    }
+
 }

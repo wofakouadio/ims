@@ -63,10 +63,11 @@ $columns = array(
         'formatter' => function($d, $row){
             if($row["user_type"] != "SUPER-ADMIN"){
                 return '
-                    <button class="btn btn-sm btn-primary text-white"><i class="mdi mdi-account" data-toggle="modal" data-target="#UserAccountType" data-user_id="'.$d.'"></i></button>
-                    <button class="btn btn-sm btn-info text-white"><i class="mdi mdi-settings" data-toggle="modal" data-target="#UserAccountStatus" data-user_id="'.$d.'"></i></button>
-                    <button class="btn btn-sm btn-warning text-white"><i class="mdi mdi-lock" data-toggle="modal" data-target="#UserAccountReset" data-user_id="'.$d.'"></i></button>
-                    <button class="btn btn-sm btn-danger text-white"><i class="mdi mdi-delete" data-toggle="modal" data-target="#UserAccountDelete" data-user_id="'.$d.'"></i></button>
+                    <button class="btn btn-sm btn-success text-white"  data-toggle="modal" data-target="#UserAccountUpdate" data-user_id="'.$d.'"><i class="mdi mdi-pen"></i></button>
+                    <button class="btn btn-sm btn-primary text-white"  data-toggle="modal" data-target="#UserAccountType" data-user_id="'.$d.'"><i class="mdi mdi-account"></i></button>
+                    <button class="btn btn-sm btn-info text-white" data-toggle="modal" data-target="#UserAccountStatus" data-user_id="'.$d.'"><i class="mdi mdi-settings"></i></button>
+                    <button class="btn btn-sm btn-warning text-white" data-toggle="modal" data-target="#UserAccountReset" data-user_id="'.$d.'"><i class="mdi mdi-lock"></i></button>
+                    <button class="btn btn-sm btn-danger text-white" data-toggle="modal" data-target="#UserAccountDelete" data-user_id="'.$d.'"><i class="mdi mdi-delete"></i></button>
                 ';
             }
 

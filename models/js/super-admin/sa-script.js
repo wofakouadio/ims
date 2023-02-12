@@ -45,4 +45,86 @@ $(document).ready(()=>{
                 })
             })
 
+        //User Account Type
+        $(".uat-alert").hide()
+        $("#UserAccountType").on("show.bs.modal", (event)=>{
+
+            let str = $(event.relatedTarget)
+            let user_id = str.data("user_id")
+            let modal = $("#UserAccountType")
+            $.ajax({
+                url:'../models/server/super-admin/user-data-script.php',
+                method:'GET',
+                cache:false,
+                data:{user_id:user_id},
+                success:(UserData_Response)=>{
+                    let user_data = JSON.parse(UserData_Response)
+                    modal.find("input[name=user_fullname]").val(user_data.data.user_fullname)
+                    modal.find("select[name=user_type]").val(user_data.data.user_type)
+                    modal.find("input[name=user_id]").val(user_id)
+                }
+            })
+        })
+
+        // User Account Status
+        $(".uas-alert").hide()
+        $("#UserAccountStatus").on("show.bs.modal", (event)=>{
+
+            let str = $(event.relatedTarget)
+            let user_id = str.data("user_id")
+            let modal = $("#UserAccountStatus")
+            $.ajax({
+                url:'../models/server/super-admin/user-data-script.php',
+                method:'GET',
+                cache:false,
+                data:{user_id:user_id},
+                success:(UserData_Response)=>{
+                    let user_data = JSON.parse(UserData_Response)
+                    modal.find("input[name=user_fullname]").val(user_data.data.user_fullname)
+                    modal.find("select[name=user_status]").val(user_data.data.user_status)
+                    modal.find("input[name=user_id]").val(user_id)
+                }
+            })
+        })
+
+        // User Account Reset
+        $(".uar-alert").hide()
+        $("#UserAccountReset").on("show.bs.modal", (event)=>{
+
+            let str = $(event.relatedTarget)
+            let user_id = str.data("user_id")
+            let modal = $("#UserAccountReset")
+            $.ajax({
+                url:'../models/server/super-admin/user-data-script.php',
+                method:'GET',
+                cache:false,
+                data:{user_id:user_id},
+                success:(UserData_Response)=>{
+                    let user_data = JSON.parse(UserData_Response)
+                    modal.find(".uar-notice").text("Are you sure you want to reset "+user_data.data.user_fullname+" Account?")
+                    modal.find("input[name=user_id]").val(user_id)
+                }
+            })
+        })
+
+        // User Account Delete
+        $(".uad-alert").hide()
+        $("#UserAccountDelete").on("show.bs.modal", (event)=>{
+
+            let str = $(event.relatedTarget)
+            let user_id = str.data("user_id")
+            let modal = $("#UserAccountDelete")
+            $.ajax({
+                url:'../models/server/super-admin/user-data-script.php',
+                method:'GET',
+                cache:false,
+                data:{user_id:user_id},
+                success:(UserData_Response)=>{
+                    let user_data = JSON.parse(UserData_Response)
+                    modal.find(".uad-notice").text("Are you sure you want to delete "+user_data.data.user_fullname+" Account?")
+                    modal.find("input[name=user_id]").val(user_id)
+                }
+            })
+        })
+
 })
