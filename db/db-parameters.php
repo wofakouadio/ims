@@ -8,7 +8,7 @@
     // username
     define("USERNAME","root");
     // password
-    define("PASSWORD","root");
+    define("PASSWORD","");
     // DB
     define("DATABASE", "ims-project");
     // charset

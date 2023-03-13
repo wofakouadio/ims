@@ -17,13 +17,19 @@ $("document").ready(()=>{
     $("#btn-pass").on("click", (e)=>{
         e.preventDefault()
         let u_pass = $("input[name=u-pass]")
+        let u_npass = $("input[name=u-npass]")
+        let u_cpass = $("input[name=u-cpass]")
         let eye_icon = $("#eye-icon")
 
-        if(u_pass.attr("type") == "password"){
+        if(u_pass.attr("type") == "password" || u_npass.attr("type") == "password" || u_cpass.attr("type") == "password"){
             u_pass.attr("type","text")
+            u_npass.attr("type","text")
+            u_cpass.attr("type","text")
             eye_icon.attr("class", "fas fa-eye")
         }else{
             u_pass.attr("type","password")
+            u_npass.attr("type","password")
+            u_cpass.attr("type","password")
             eye_icon.attr("class", "fas fa-eye-slash")
         }
     })
@@ -91,6 +97,42 @@ $("document").ready(()=>{
                         window.location.href = "../"+user_login.data.url
                     }
                     // console.log(user_login)
+                }
+            })
+
+        })
+
+
+    /**************************************/
+    /** USER PASSWORD CREATION **/
+    /**************************************/
+
+        // ALERTS
+        $(".ucp-alert").hide()
+
+        // create password form
+        $("#create-password-form").on("submit", (e) => {
+
+            e.preventDefault()
+
+            $.ajax({
+                url:'../models/server/login/user-create-password-script.php',
+                method: 'POST',
+                cache: false,
+                data: $("#create-password-form").serialize(),
+                success:(UserCreatePassword_Response)=>{
+                    let user_cp = JSON.parse(UserCreatePassword_Response)
+                    if(user_cp.status == "failed"){
+                        $(".ucp-alert").show().addClass("alert-warning").find(".alert-content").html(user_cp.msg)
+                        $(".ucp-alert").removeClass("alert-success")
+                    }else{
+                        $(".ucp-alert").show().addClass("alert-success").find(".alert-content").text(user_cp.msg)
+                        $(".ucp-alert").removeClass("alert-warning")
+                        setTimeout(()=>{
+                            window.location.href = '../';
+                        }, 2000)
+                    }
+                    console.log(user_cp)
                 }
             })
 

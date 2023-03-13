@@ -17,6 +17,8 @@
         protected $user_status;
         protected $user_loginBefore;
         protected $user_password;
+        protected $user_new_password;
+        // protected $user_confirm_password;
         protected $usr_profile;
         protected $user_id_profile;
         protected $user_timestamp;
@@ -250,6 +252,47 @@
                     'msg' => 'Something went wrong',
                     'error' => $th->getMessage()
                 ];
+            }
+
+            return json_encode($data);
+
+        }
+
+
+        // method to allow user to create new password
+        public function UserPasswordCreation($user_name, $user_new_password){
+
+            // Initialize variables
+            $this->user_name = $user_name;
+            $this->user_new_password = $user_new_password;
+
+            // hash password
+            $HashedPass = password_hash($user_new_password, PASSWORD_DEFAULT);
+
+            // update use password
+            try {
+
+                $sql = "UPDATE `users` SET `user_password` = :user_new_password, `user_loginBefore` = :logged_in WHERE `user_name` = :user_name";
+                $stmt = $this->connectionString()->prepare($sql);
+                $stmt->bindValue(":user_new_password", $HashedPass, PDO::PARAM_STR);
+                $stmt->bindValue(":user_name", $user_name, PDO::PARAM_STR);
+                $stmt->bindValue(":logged_in", 1, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $data = [
+                    'status' => 'success',
+                    'msg' => 'Password created successfully',
+                    'error' => null
+                ];
+
+            } catch (\PDOException $th) {
+
+                $data = [
+                    'status' => 'failed',
+                    'msg' => 'Something went wrong',
+                    'error' => $th->getMessage()
+                ];
+
             }
 
             return json_encode($data);
