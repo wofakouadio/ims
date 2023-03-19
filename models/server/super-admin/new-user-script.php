@@ -6,14 +6,14 @@
     if(isset($_POST["user_fullname"]) && isset($_POST["user_dob"]) && isset($_POST["user_gender"]) && isset($_POST["user_placeOfBirth"]) && isset($_POST["user_address1"]) && isset($_POST["user_address2"]) && isset($_POST["user_mobile"]) && isset($_POST["user_contact"]) && isset($_POST["user_email"]) && isset($_POST["user_type"]) && isset($_FILES["user_profile"]) && isset($_FILES["user_id_profile"])){
 
         $user_fullname = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_fullname", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
-        $user_dob = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_dob", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
-        $user_gender = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_gender", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
+        $user_dob = SanitizeInput(filter_input(INPUT_POST, "user_dob", FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $user_gender = SanitizeInput(filter_input(INPUT_POST, "user_gender", FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $user_placeOfBirth = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_placeOfBirth", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
         $user_address1 = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_address1", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
         $user_address2 = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_address2", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
         $user_mobile = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_mobile", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
         $user_contact = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_contact", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
-        $user_email = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_email", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
+        $user_email = SanitizeInput(filter_input(INPUT_POST, "user_email", FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $validate_email = filter_var($user_email, FILTER_VALIDATE_EMAIL);
         $user_type = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_type", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
         $user_profile_dir = "../../../user-files/";

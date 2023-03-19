@@ -45,6 +45,79 @@ $(document).ready(()=>{
                 })
             })
 
+        // User Account View
+        $(".uau-alert").hide()
+        $("#UserAccountUpdate").on("show.bs.modal", (event)=>{
+
+            let str = $(event.relatedTarget)
+            let modal = $("#UserAccountUpdate")
+            let user_id = str.data("user_id")
+            $.ajax({
+                url:'../models/server/super-admin/user-data-script.php',
+                method:'GET',
+                cache:false,
+                data:{user_id:user_id},
+                success:(UserData_Response)=>{
+                    let user_data = JSON.parse(UserData_Response)
+                    modal.find("input[name=user_fullname]").val(user_data.data.user_fullname)
+                    modal.find("input[name=user_id]").val(user_id)
+                    modal.find("input[name=user_dob]").val(user_data.data.user_dob)
+                    modal.find("select[name=user_gender]").val(user_data.data.user_gender)
+                    modal.find("input[name=user_placeOfBirth]").val(user_data.data.user_placeofBirth)
+                    modal.find("input[name=user_address1]").val(user_data.data.user_address_one)
+                    modal.find("input[name=user_address2]").val(user_data.data.user_address_two)
+                    modal.find("input[name=user_mobile]").val(user_data.data.user_mobile)
+                    modal.find("input[name=user_contact]").val(user_data.data.user_contact)
+                    modal.find("input[name=user_email]").val(user_data.data.user_email)
+                }
+            })
+        })
+
+        // Update User Account View
+        $("#UserAccountUpdateForm").on("submit", (e)=>{
+
+            e.preventDefault()
+            $.ajax({
+                url:'../models/server/super-admin/user-info-data-update-script.php',
+                method:'POST',
+                cache:false,
+                data: $("#UserAccountUpdateForm").serialize(),
+                success:(UserAccountUpdateFrom)=>{
+                    let user_account_update = JSON.parse(UserAccountUpdateFrom)
+                    if(user_account_update.status == "failed"){
+                        $(".uau-alert").show().addClass(".alert-warning").text(user_account_update.msg)
+                    }else{
+                        $(".uau-alert").hide()
+                        $("#UserAccountUpdate").modal("hide");
+                        $('#users-listview-dataTables').DataTable().draw()
+                        toastr.success(user_account_update.msg, "Notification")
+                    }
+                }
+            })
+
+        })
+
+
+        // User Account Identity
+        $("#UserIdentityUpdate").on("show.bs.modal", (event)=>{
+
+            let str = $(event.relatedTarget);
+            let user_id = str.data("user_id");
+            let modal = $("#UserIdentityUpdate")
+            $.ajax({
+                url:'../models/server/super-admin/user-data-script.php',
+                method:'GET',
+                cache:false,
+                data:{user_id:user_id},
+                success:(UserData_Response)=>{
+                    let user_data = JSON.parse(UserData_Response)
+                    modal.find("input[name=user_fullname]").val(user_data.data.user_fullname)
+                    modal.find("input[name=user_id]").val(user_id)
+                }
+            })
+
+        })
+
         //User Account Type
         $(".uat-alert").hide()
         $("#UserAccountType").on("show.bs.modal", (event)=>{

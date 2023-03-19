@@ -194,7 +194,7 @@ class Users extends DBCon
                     'user_placeofBirth' => $UserData->user_placeofBirth,
                     'user_mobile' => $UserData->user_mobile,
                     'user_contact' => $UserData->user_contact,
-                    'user_mail' => $UserData->user_mail,
+                    'user_email' => $UserData->user_mail,
                     'user_address_one' => $UserData->user_address_one,
                     'user_address_two' => $UserData->user_address_two,
                     'user_type' => $UserData->user_type,
@@ -210,6 +210,127 @@ class Users extends DBCon
 
         return json_encode($data);
 
+    }
+
+    // Update User Account Data
+    public function UserAccountUpdate($user_id, $user_name, $user_fullname, $user_dob, $user_gender, $user_placeofBirth, $user_mobile, $user_contact, $user_mail, $user_address_one, $user_address_two){
+
+        $this->user_id = $user_id;
+        $this->user_name = $user_name;
+        $this->user_fullname = $user_fullname;
+        $this->user_dob = $user_dob;
+        $this->user_gender = $user_gender;
+        $this->user_placeofBirth = $user_placeofBirth;
+        $this->user_mobile = $user_mobile;
+        $this->user_contact = $user_contact;
+        $this->user_mail = $user_mail;
+        $this->user_address_one = $user_address_one;
+        $this->user_address_two = $user_address_two;
+        $connection = $this->connectionString();
+
+        try {
+
+            // sql query
+            $user_insert_sql = "UPDATE `users` SET `user_fullname` = :user_fullname, `user_dob` = :user_dob, `user_gender` = :user_gender, `user_placeofBirth` = :user_placeofBirth, `user_mobile` = :user_mobile, `user_contact` = :user_contact, `user_mail` = :user_mail, `user_address_one` = :user_address_one, `user_address_two` = :user_address_two WHERE  `user_id` = :user_id";
+            $stmt_user_insert = $connection->prepare($user_insert_sql);
+            $stmt_user_insert->bindValue(":user_id", $user_id, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_fullname", $user_fullname, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_dob", $user_dob, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_gender", $user_gender, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_placeofBirth", $user_placeofBirth, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_mobile", $user_mobile, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_contact", $user_contact, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_mail", $user_mail, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_address_one", $user_address_one, PDO::PARAM_STR);
+            $stmt_user_insert->bindValue(":user_address_two", $user_address_two, PDO::PARAM_STR);
+            $stmt_user_insert->execute();
+
+            $data = [
+                'status' => 'success',
+                'msg' => $user_fullname . ' Account has been successfully updated',
+                'error' => null
+            ];
+
+        } catch (\PDOException $th) {
+
+            $data = [
+                'status' => 'failed',
+                'msg' => 'Something went wrong. ',
+                'error' => $th->getMessage()
+            ];
+
+        }
+
+        return json_encode($data);
+
+    }
+
+
+    // Update User Account Identity Profile
+    public function UserAccountIdentityProfile($user_id, $user_profile){
+
+        $this->user_id = $user_id;
+        $this->user_profile = $user_profile;
+        $connection = $this->connectionString();
+        try {
+
+            // sql
+            $sql = "UPDATE `users` SET `user_profile` = :user_profile WHERE `user_id` = :user_id";
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(":user_profile", $user_type, PDO::PARAM_STR);
+            $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Identity Profile Picture updated successfully',
+                'error' => null
+            ];
+
+        } catch (\PDOException $th) {
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Identity Profile Picture failed updating',
+                'error' => $th->getMessage()
+            ];
+
+        }
+        return json_encode($data);
+    }
+
+
+        // Update User Account Identity ScannedID
+    public function UserAccountIdentityScannedID($user_id, $user_id_profile){
+
+        $this->user_id = $user_id;
+        $this->user_id_profile = $user_id_profile;
+        $connection = $this->connectionString();
+        try {
+
+            // sql
+            $sql = "UPDATE `users` SET `user_id_profile` = :user_id_profile WHERE `user_id` = :user_id";
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(":user_id_profile", $user_type, PDO::PARAM_STR);
+            $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Identity Scanned ID updated successfully',
+                'error' => null
+            ];
+
+        } catch (\PDOException $th) {
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Identity Scanned ID failed updating',
+                'error' => $th->getMessage()
+            ];
+
+        }
+        return json_encode($data);
     }
 
     // Update User Account Type
@@ -242,7 +363,7 @@ class Users extends DBCon
             ];
 
         }
-        echo json_encode($data);
+        return json_encode($data);
     }
 
     // Update User Account Status
@@ -275,11 +396,11 @@ class Users extends DBCon
             ];
 
         }
-        echo json_encode($data);
+        return json_encode($data);
     }
 
     // Reset User Account Password
-    public function UserAccountStatus($user_id){
+    public function UserAccountPassword($user_id){
 
         $this->user_id = $user_id;
         $connection = $this->connectionString();
@@ -307,7 +428,7 @@ class Users extends DBCon
             ];
 
         }
-        echo json_encode($data);
+        return json_encode($data);
     }
 
     // User Account Deletion
@@ -338,7 +459,7 @@ class Users extends DBCon
             ];
 
         }
-        echo json_encode($data);
+        return json_encode($data);
     }
 
 }

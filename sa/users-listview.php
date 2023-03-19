@@ -57,6 +57,7 @@
                                     <table id="users-listview-dataTables" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
+                                                <th>#</th>
                                                 <th>Name</th>
                                                 <th>UserName</th>
                                                 <th>Position</th>
@@ -68,6 +69,7 @@
                                         <tbody></tbody>
                                         <tfoot>
                                             <tr>
+                                                <th>#</th>
                                                 <th>Name</th>
                                                 <th>UserName</th>
                                                 <th>Position</th>
