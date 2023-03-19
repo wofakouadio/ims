@@ -172,6 +172,31 @@ $(document).ready(()=>{
             })
         })
 
+        // Update User Account Type
+        $("#UserAccountTypeForm").on("submit", (e)=>{
+
+            e.preventDefault()
+            $.ajax({
+                url:'../models/server/super-admin/user-type-data-update-script.php',
+                cache:false,
+                method:'POST',
+                data: $("#UserAccountTypeForm").serialize(),
+                success:(UserAccountType_Response)=>{
+                    let user_account_type = JSON.parse(UserAccountType_Response)
+                    if(user_account_type.status == "failed"){
+                        $(".uat-alert").show().addClass("alert-warning").text(user_account_type.msg)
+                    }else{
+                        $(".uat-alert").hide()
+                        $("#UserAccountType").modal('hide')
+                        toastr.success(user_account_type.msg, "Notification")
+                        $('#users-listview-dataTables').DataTable().draw()
+                    }
+                }
+            })
+
+        })
+
+
         // User Account Status
         $(".uas-alert").hide()
         $("#UserAccountStatus").on("show.bs.modal", (event)=>{
