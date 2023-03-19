@@ -99,6 +99,7 @@ $(document).ready(()=>{
 
 
         // User Account Identity
+        $(".uai-alert").hide()
         $("#UserIdentityUpdate").on("show.bs.modal", (event)=>{
 
             let str = $(event.relatedTarget);
@@ -113,7 +114,39 @@ $(document).ready(()=>{
                     let user_data = JSON.parse(UserData_Response)
                     modal.find("input[name=user_fullname]").val(user_data.data.user_fullname)
                     modal.find("input[name=user_id]").val(user_id)
+                    modal.find(".user-profile").html("<img src='../../../user-files/"+user_data.data.user_profile+"' width='150px' class='img'>")
+                    modal.find(".user-id-profile").html("<img src='../../../user-files/"+user_data.data.user_id_profile+"' width='150px' class='img'>")
                 }
+            })
+
+        })
+
+        // Update User Account Identity
+        $(".uai-alert").hide()
+        $("#UserIdentityUpdateForm").on("submit", (e)=>{
+
+            let form_data = $("#UserIdentityUpdateForm")[0]
+
+            e.preventDefault()
+            $.ajax({
+                url:'../models/server/super-admin/user-identity-data-update-script.php',
+                method:'POST',
+                contentType:false,
+                processData:false,
+                data: new FormData(form_data),
+                success:(UserIdentity_Response)=>{
+                    let user_identity = JSON.parse(UserIdentity_Response)
+                    if(user_identity.status == "failed"){
+                        $(".uai-alert").show().addClass("alert-warning").text(user_identity.msg)
+                    }else{
+                        $(".uai-alert").hide()
+                        $("#UserIdentityUpdate").modal("hide")
+                        $("#UserIdentityUpdateForm")[0].reset()
+                        toastr.success(user_identity.msg, "Notification")
+                        $('#users-listview-dataTables').DataTable().draw()
+                    }
+                }
+
             })
 
         })

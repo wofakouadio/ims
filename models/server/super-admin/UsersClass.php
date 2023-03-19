@@ -277,7 +277,7 @@ class Users extends DBCon
             // sql
             $sql = "UPDATE `users` SET `user_profile` = :user_profile WHERE `user_id` = :user_id";
             $stmt = $connection->prepare($sql);
-            $stmt->bindValue(":user_profile", $user_type, PDO::PARAM_STR);
+            $stmt->bindValue(":user_profile", $user_profile, PDO::PARAM_STR);
             $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
             $stmt->execute();
 
@@ -300,7 +300,7 @@ class Users extends DBCon
     }
 
 
-        // Update User Account Identity ScannedID
+    // Update User Account Identity ScannedID
     public function UserAccountIdentityScannedID($user_id, $user_id_profile){
 
         $this->user_id = $user_id;
@@ -311,7 +311,7 @@ class Users extends DBCon
             // sql
             $sql = "UPDATE `users` SET `user_id_profile` = :user_id_profile WHERE `user_id` = :user_id";
             $stmt = $connection->prepare($sql);
-            $stmt->bindValue(":user_id_profile", $user_type, PDO::PARAM_STR);
+            $stmt->bindValue(":user_id_profile", $user_id_profile, PDO::PARAM_STR);
             $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
             $stmt->execute();
 
@@ -331,6 +331,43 @@ class Users extends DBCon
 
         }
         return json_encode($data);
+    }
+
+
+    // Update User Identity
+    public function UserAccountIdentity($user_id, $user_profile, $user_id_profile){
+
+        $this->user_id = $user_id;
+        $this->user_profile = $user_profile;
+        $this->user_id_profile = $user_id_profile;
+        $connection = $this->connectionString();
+        try {
+
+            // sql
+            $sql = "UPDATE `users` SET `user_profile` = :user_profile, `user_id_profile` = :user_id_profile WHERE `user_id` = :user_id";
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(":user_id_profile", $user_id_profile, PDO::PARAM_STR);
+            $stmt->bindValue(":user_profile", $user_profile, PDO::PARAM_STR);
+            $stmt->bindValue(":user_id", $user_id, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Identity updated successfully',
+                'error' => null
+            ];
+
+        } catch (\PDOException $th) {
+
+            $data = [
+                'status' => 'success',
+                'msg' => 'User Account Identity failed updating',
+                'error' => $th->getMessage()
+            ];
+
+        }
+        return json_encode($data);
+
     }
 
     // Update User Account Type
