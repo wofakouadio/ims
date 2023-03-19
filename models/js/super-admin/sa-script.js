@@ -261,6 +261,30 @@ $(document).ready(()=>{
             })
         })
 
+        // Update User Account Reset
+        $("#UserAccountResetForm").on("submit", (e)=>{
+
+            e.preventDefault()
+            $.ajax({
+                url:'../models/server/super-admin/user-reset-data-update-script.php',
+                cache:false,
+                method:'POST',
+                data: $("#UserAccountResetForm").serialize(),
+                success:(UserAccountReset_Response)=>{
+                    let user_account_reset = JSON.parse(UserAccountReset_Response)
+                    if(user_account_reset.reset == "failed"){
+                        $(".uat-alert").show().addClass("alert-warning").text(user_account_reset.msg)
+                    }else{
+                        $(".uat-alert").hide()
+                        $("#UserAccountReset").modal('hide')
+                        toastr.success(user_account_reset.msg, "Notification")
+                        $('#users-listview-dataTables').DataTable().draw()
+                    }
+                }
+            })
+
+        })
+
         // User Account Delete
         $(".uad-alert").hide()
         $("#UserAccountDelete").on("show.bs.modal", (event)=>{

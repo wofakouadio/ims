@@ -27,7 +27,6 @@
             $UserAccountStatusObject = new Users;
 
             $user_account_status_update = $UserAccountStatusObject->UserAccountStatus($user_status, $user_id);
-            // $user_account_status_update = $UserAccountStatusObject->UserAccountPassword($user_id);
 
             $data = json_decode($user_account_status_update, TRUE);
 
