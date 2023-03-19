@@ -305,4 +305,28 @@ $(document).ready(()=>{
             })
         })
 
+        // Update User Account Delete
+        $("#UserAccountDeleteForm").on("submit", (e)=>{
+
+            e.preventDefault()
+            $.ajax({
+                url:'../models/server/super-admin/user-delete-data-update-script.php',
+                cache:false,
+                method:'POST',
+                data: $("#UserAccountDeleteForm").serialize(),
+                success:(UserAccountDelete_Response)=>{
+                    let user_account_delete = JSON.parse(UserAccountDelete_Response)
+                    if(user_account_delete.delete == "failed"){
+                        $(".uat-alert").show().addClass("alert-warning").text(user_account_delete.msg)
+                    }else{
+                        $(".uat-alert").hide()
+                        $("#UserAccountDelete").modal('hide')
+                        toastr.success(user_account_delete.msg, "Notification")
+                        $('#users-listview-dataTables').DataTable().draw()
+                    }
+                }
+            })
+
+        })
+
 })
