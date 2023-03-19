@@ -407,7 +407,7 @@ class Users extends DBCon
     public function UserAccountStatus($user_status, $user_id){
 
         $this->user_id = $user_id;
-        $this->user_type = $user_type;
+        $this->user_status = $user_status;
         $connection = $this->connectionString();
         try {
 

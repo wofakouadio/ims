@@ -196,7 +196,6 @@ $(document).ready(()=>{
 
         })
 
-
         // User Account Status
         $(".uas-alert").hide()
         $("#UserAccountStatus").on("show.bs.modal", (event)=>{
@@ -216,6 +215,30 @@ $(document).ready(()=>{
                     modal.find("input[name=user_id]").val(user_id)
                 }
             })
+        })
+
+        // Update User Account Status
+        $("#UserAccountStatusForm").on("submit", (e)=>{
+
+            e.preventDefault()
+            $.ajax({
+                url:'../models/server/super-admin/user-status-data-update-script.php',
+                cache:false,
+                method:'POST',
+                data: $("#UserAccountStatusForm").serialize(),
+                success:(UserAccountStatus_Response)=>{
+                    let user_account_status = JSON.parse(UserAccountStatus_Response)
+                    if(user_account_status.status == "failed"){
+                        $(".uat-alert").show().addClass("alert-warning").text(user_account_status.msg)
+                    }else{
+                        $(".uat-alert").hide()
+                        $("#UserAccountStatus").modal('hide')
+                        toastr.success(user_account_status.msg, "Notification")
+                        $('#users-listview-dataTables').DataTable().draw()
+                    }
+                }
+            })
+
         })
 
         // User Account Reset
