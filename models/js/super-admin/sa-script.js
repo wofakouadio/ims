@@ -6,6 +6,9 @@ $(document).ready(()=>{
     */
         $("#main-wrapper").attr("data-sidebartype", "mini-sidebar").attr("class", "mini-sidebar");
 
+    // custom select
+    $(".custom-select").select2();
+
     /**
     * Users
     */
@@ -328,5 +331,20 @@ $(document).ready(()=>{
             })
 
         })
+
+    /**
+    * Items
+    */
+        // Load product categories
+        const ProductCategories = () =>{
+            $.ajax({
+                url:"../models/server/super-admin/items/product-categories-script.php",
+                cache:false,
+                success:(data)=>{
+                    $("#item-product-category").html(data)
+                }
+            })
+        }
+        ProductCategories();
 
 })
