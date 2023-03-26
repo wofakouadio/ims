@@ -21,6 +21,8 @@
     <link href="../layouts/dist/DataTables/datatables.min.css" rel="stylesheet">
     <!-- toastr alert -->
     <link href="../layouts/assets/libs/toastr/build/toastr.min.css" rel="stylesheet">
+    <!-- custom select -->
+    <link rel="stylesheet" type="text/css" href="../layouts/assets/libs/select2/dist/css/select2.min.css">
     <!-- Custom CSS -->
     <link href="../layouts/dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

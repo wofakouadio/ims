@@ -29,6 +29,9 @@
     <script src="../layouts/dist/DataTables/datatables.min.js"></script>
     <!-- toastr alert -->
     <script src="../layouts/assets/libs/toastr/build/toastr.min.js"></script>
+    <!-- custom select -->
+    <script src="../layouts/assets/libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="../layouts/assets/libs/select2/dist/js/select2.min.js"></script>
     <!-- custom scripts -->
     <script src="../models/js/super-admin/sa-script.js"></script>
     <script src="../models/js/super-admin/sa-dataTable.js"></script>
