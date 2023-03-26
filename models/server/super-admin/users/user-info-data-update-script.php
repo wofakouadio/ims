@@ -1,7 +1,7 @@
 <?php
 
-    include '../../sessions.php';
-    include '../../constants.php';
+    include '../../../sessions.php';
+    include '../../../constants.php';
 
     if(isset($_POST["user_fullname"]) && isset($_POST["user_dob"]) && isset($_POST["user_gender"]) && isset($_POST["user_placeOfBirth"]) && isset($_POST["user_address1"]) && isset($_POST["user_address2"]) && isset($_POST["user_mobile"]) && isset($_POST["user_contact"]) && isset($_POST["user_email"]) && isset($_POST["user_id"])){
 
@@ -77,10 +77,10 @@
         else{
 
             // database connection
-            require('../../../db/db-config.php');
+            require('../../../../db/db-config.php');
 
             // Users Class
-            require("../../../models/server/super-admin/UsersClass.php");
+            require("../../../../models/server/super-admin/users/UsersClass.php");
 
             $UserInfoUpdateObject = new Users;
 

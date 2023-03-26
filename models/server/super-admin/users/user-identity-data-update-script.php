@@ -1,19 +1,19 @@
 <?php
 
-    include '../../sessions.php';
-    include '../../constants.php';
+    include '../../../sessions.php';
+    include '../../../constants.php';
 
     if(isset($_POST["user_id"]) && isset($_FILES["user_profile"]) && isset($_FILES["user_id_profile"])){
 
         $user_id = SanitizeInput(filter_input(INPUT_POST, "user_id"), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $user_profile_dir = "../../../user-files/";
+        $user_profile_dir = "../../../../user-files/";
         $valid_format = ["png", "jpg", "jpeg"];
 
         // database connection
-        require('../../../db/db-config.php');
+        require('../../../../db/db-config.php');
 
         // Users Class
-        require("../../../models/server/super-admin/UsersClass.php");
+        require("../../../../models/server/super-admin/users/UsersClass.php");
 
         // user profile
         if(!empty($_FILES["user_profile"]["name"]) || ($_FILES["user_profile"]["name"]) != ""){

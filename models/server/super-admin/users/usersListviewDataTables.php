@@ -1,6 +1,6 @@
 <?php
     // require db parameters
-    require '../../../db/db-parameters.php';
+    require '../../../../db/db-parameters.php';
 
     // set variables in new var
 $sql_details = array(
@@ -53,7 +53,7 @@ $columns = array(
     )
 );
 
-    require '../../ssp.class.php';
+    require '../../../ssp.class.php';
 
 $joinQuery = 'FROM `users`';
 

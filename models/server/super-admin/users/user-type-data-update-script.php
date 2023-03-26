@@ -1,7 +1,7 @@
 <?php
 
-    include '../../sessions.php';
-    include '../../constants.php';
+    include '../../../sessions.php';
+    include '../../../constants.php';
 
     if(isset($_POST["user_type"]) && isset($_POST["user_id"])){
 
@@ -19,10 +19,10 @@
         else{
 
             // database connection
-            require('../../../db/db-config.php');
+            require('../../../../db/db-config.php');
 
             // Users Class
-            require("../../../models/server/super-admin/UsersClass.php");
+            require("../../../../models/server/super-admin/users/UsersClass.php");
 
             $UserAccountTypeObject = new Users;
 

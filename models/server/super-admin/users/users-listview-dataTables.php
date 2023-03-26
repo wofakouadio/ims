@@ -1,7 +1,7 @@
 <?php
 
     // require db parameters
-    require '../../../db/db-parameters.php';
+    require '../../../../db/db-parameters.php';
 
     // set variables in new var
     $sql_details = array(
@@ -23,10 +23,10 @@
             'db' => 'user_profile',
             'dt' => 0,
             'formatter' => function ($d) {
-                if (file_exists("../../../user-files/$d")) {
-                    return '<img src="../../../user-files/'.$d.'" class="img rounded" width="50px"/>';
+                if (file_exists("../../../../user-files/$d")) {
+                    return '<img src="../../../../user-files/'.$d.'" class="img rounded" width="50px"/>';
                 } else {
-                    return '<img src="../../../user-files/user-default-profile.png" class="img rounded" width="50px"/>';
+                    return '<img src="../../../../user-files/user-default-profile.png" class="img rounded" width="50px"/>';
                 }
             },
             'field' => 'user_profile'
@@ -86,7 +86,7 @@
                             <a class="dropdown-item" class="btn btn-sm btn-warning text-white" data-toggle="modal" data-target="#UserAccountReset" data-user_id="'.$d.'">Reset Account</a>
                             <a class="dropdown-item" class="btn btn-sm btn-danger text-white" data-toggle="modal" data-target="#UserAccountDelete" data-user_id="'.$d.'">Delete Account</a>
                         </div>
-                    </div>  
+                    </div>
                 ';
                 }
             },
@@ -94,7 +94,7 @@
         ),
     );
 
-    require '../../ssp.class.php';
+    require '../../../ssp.class.php';
 
     $joinQuery = 'FROM `logins_view`';
 

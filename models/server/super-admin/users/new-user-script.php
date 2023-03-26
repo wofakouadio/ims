@@ -1,7 +1,7 @@
 <?php
 
-    include '../../sessions.php';
-    include '../../constants.php';
+    include '../../../sessions.php';
+    include '../../../constants.php';
 
     if(isset($_POST["user_fullname"]) && isset($_POST["user_dob"]) && isset($_POST["user_gender"]) && isset($_POST["user_placeOfBirth"]) && isset($_POST["user_address1"]) && isset($_POST["user_address2"]) && isset($_POST["user_mobile"]) && isset($_POST["user_contact"]) && isset($_POST["user_email"]) && isset($_POST["user_type"]) && isset($_FILES["user_profile"]) && isset($_FILES["user_id_profile"])){
 
@@ -16,7 +16,7 @@
         $user_email = SanitizeInput(filter_input(INPUT_POST, "user_email", FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $validate_email = filter_var($user_email, FILTER_VALIDATE_EMAIL);
         $user_type = SanitizeInput(strtoupper(filter_input(INPUT_POST, "user_type", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
-        $user_profile_dir = "../../../user-files/";
+        $user_profile_dir = "../../../../user-files/";
         $valid_format = ["png", "jpg", "jpeg"];
 
         // validation check
@@ -85,10 +85,10 @@
         }else{
 
             // database connection
-            require('../../../db/db-config.php');
+            require('../../../../db/db-config.php');
 
             // Users Class
-            require("../../../models/server/super-admin/UsersClass.php");
+            require("../../../../models/server/super-admin/users/UsersClass.php");
 
             $UserObject = new Users;
             $user_id = $UserObject->UserID();
