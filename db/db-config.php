@@ -48,6 +48,13 @@ require('db-parameters.php');
 
         }
 
+        // close db connection
+        public function closeConnectionString(){
+
+            $this->db_con = null;
+
+        }
+
 
 
     }
