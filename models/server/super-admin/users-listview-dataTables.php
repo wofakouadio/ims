@@ -76,13 +76,9 @@
             'formatter' => function ($d, $row) {
                 if ($row["user_type"] != "SUPER-ADMIN") {
                     return '
-
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary">Action</button>
-                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu" x-placement="top-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(91px, -204px, 0px);">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                        <div class="dropdown-menu">
                             <a class="dropdown-item" class="btn btn-sm btn-dark text-white"  data-toggle="modal" data-target="#UserAccountUpdate" data-user_id="'.$d.'">Update</a>
                             <a class="dropdown-item" class="btn btn-sm btn-success text-white"  data-toggle="modal" data-target="#UserIdentityUpdate" data-user_id="'.$d.'">Identity</a>
                             <a class="dropdown-item" class="btn btn-sm btn-primary text-white"  data-toggle="modal" data-target="#UserAccountType" data-user_id="'.$d.'">Account Type</a>
@@ -90,7 +86,7 @@
                             <a class="dropdown-item" class="btn btn-sm btn-warning text-white" data-toggle="modal" data-target="#UserAccountReset" data-user_id="'.$d.'">Reset Account</a>
                             <a class="dropdown-item" class="btn btn-sm btn-danger text-white" data-toggle="modal" data-target="#UserAccountDelete" data-user_id="'.$d.'">Delete Account</a>
                         </div>
-                    </div>
+                    </div>  
                 ';
                 }
             },
