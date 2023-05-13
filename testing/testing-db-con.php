@@ -1,7 +1,7 @@
 <?php
-    require '../db/db-config.php';
+    require '../db/DataBaseClass.php';
 
-    $test_db_con = new DBCon;
+    $test_db_con = new DataBaseClass();
 
-    echo $test_db_con->connectionString();
+//    echo $test_db_con->connectionString();
 

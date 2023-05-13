@@ -1,6 +1,6 @@
 <?php
-    require '../db/db-config.php';
-    require '../models/server/super-admin/UsersClass.php';
+    require '../db/DataBaseClass.php';
+    require '../controllers/UsersClass.php';
 
     $UserObject = new Users;
 

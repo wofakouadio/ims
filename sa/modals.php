@@ -377,3 +377,267 @@
             </form>
         </div>
     </div>
+<!-- *********************************** -->
+<!-- USERS -->
+<!-- *********************************** -->
+
+
+<!-- *********************************** -->
+<!-- ITEMS -->
+<!-- *********************************** -->
+
+    <!--  Add Item  -->
+    <div class="modal fade" id="AddItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <form action="<?php echo FORM_PATH;?>" method="POST" id="AddItemForm" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Item Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- alert -->
+                        <div class="ai-alert alert alert-warning alert-dismissible fade show" role="alert">
+                            <span class="ai-alert-content"></span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Product Category</label>
+                                    <select class="form-control" name="item-product-category" id="item-product-category" style="width: 100%"></select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Item Number</label>
+                                    <input type="text" name="item-number" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Item Name</label>
+                                    <input type="text" name="item-name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-control" name="item-status">
+                                        <option value="0">Choose</option>
+                                        <option value="1">ACTIVE</option>
+                                        <option value="2">DISABLED</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea rows="10" cols="5" name="item-description" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Quantity</label>
+                                    <input type="number" name="item-quantity" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Unit Price</label>
+                                    <input type="text" name="item-unit-price" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Discount %</label>
+                                    <input type="text" name="item-discount" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>File Upload</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="item-image">
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add Item</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--  View N Update Item  -->
+    <div class="modal fade" id="ViewUpdateItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <form action="<?php echo FORM_PATH;?>" method="POST" id="ViewUpdateItemForm" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Item Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- alert -->
+                        <div class="ai-alert alert alert-warning alert-dismissible fade show" role="alert">
+                            <span class="ai-alert-content"></span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#item-data" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Item Info</span></a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#item-stock" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Stock Info</span></a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#upload-item-image" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Upload Image</span></a> </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content tabcontent-border">
+                            <div class="tab-pane active" id="item-data" role="tabpanel">
+                                <div class="p-20">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Product Category</label>
+                                                <select class="form-control" name="item-product-category" id="item-product-category" style="width: 100%"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Item Number</label>
+                                                <input type="text" name="item-number" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Item Name</label>
+                                                <input type="text" name="item-name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Status</label>
+                                                <select class="form-control" name="item-status">
+                                                    <option value="0">Choose</option>
+                                                    <option value="1">ACTIVE</option>
+                                                    <option value="2">DISABLED</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea rows="10" cols="5" name="item-description" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Discount %</label>
+                                                <input type="text" name="item-discount" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="item-stock" role="tabpanel">
+                                <div class="p-20">
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <input type="number" name="item-quantity" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Unit Price</label>
+                                        <input type="text" name="item-unit-price" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Total Stock</label>
+                                        <input type="number" name="item-total-stock" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="upload-item-image" role="tabpanel">
+                                <div class="p-20">
+                                    <div class="form-group">
+                                        <div class="item-img-file text-center"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>File Upload</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="validatedCustomFile" name="item-image">
+                                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-dark">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--  Delete Item  -->
+    <div class="modal fade" id="DeleteItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <form action="<?php echo FORM_PATH;?>" method="POST" id="DeleteItemForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Item Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- alert -->
+                        <div class="ai-alert alert alert-warning alert-dismissible fade show" role="alert">
+                            <span class="ai-alert-content"></span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <h4 class="delete-item-notice"></h4>
+                            <input type="hidden" name="item-number">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<!-- *********************************** -->
+<!-- ITEMS -->
+<!-- *********************************** -->

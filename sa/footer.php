@@ -27,6 +27,9 @@
     <!-- dataTables -->
     <!-- <script src="../layouts/assets/extra-libs/DataTables/datatables.min.js"></script> -->
     <script src="../layouts/dist/DataTables/datatables.min.js"></script>
+<!--    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>-->
+<!--    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>-->
+<!--    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>-->
     <!-- toastr alert -->
     <script src="../layouts/assets/libs/toastr/build/toastr.min.js"></script>
     <!-- custom select -->

@@ -1,6 +1,6 @@
 <?php
 
-class Users extends DBCon
+class Users extends DataBaseClass
 {
 
     protected $user_id;

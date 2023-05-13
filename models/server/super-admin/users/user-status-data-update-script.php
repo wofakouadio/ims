@@ -1,7 +1,7 @@
 <?php
 
-    include '../../../sessions.php';
-    include '../../../constants.php';
+    include '../../../../config/sessions.php';
+    include '../../../../config/constants.php';
 
     if(isset($_POST["user_status"]) && isset($_POST["user_id"])){
 
@@ -19,10 +19,10 @@
         else{
 
             // database connection
-            require('../../../../db/db-config.php');
+            require('../../../../db/DataBaseClass.php');
 
             // Users Class
-            require("../../../../models/server/super-admin/users/UsersClass.php");
+            require("../../../../controllers/UsersClass.php");
 
             $UserAccountStatusObject = new Users;
 

@@ -1,17 +1,17 @@
 <?php
 
-    include '../../../sessions.php';
-    include '../../../constants.php';
+    include '../../../../config/sessions.php';
+    include '../../../../config/constants.php';
 
     if(isset($_GET["user_id"])){
 
         $user_id = SanitizeInput(strtoupper(filter_input(INPUT_GET, "user_id", FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
 
         // database connection
-        require('../../../../db/db-config.php');
+        require('../../../../db/DataBaseClass.php');
 
         // Users Class
-        require("../../../../models/server/super-admin/users/UsersClass.php");
+        require("../../../../controllers/UsersClass.php");
 
         $UserObject = new Users;
 

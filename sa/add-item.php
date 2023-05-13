@@ -46,109 +46,38 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-
-
-                <form class="form-group" action="<?php echo FORM_PATH; ?>" enctype="multipart/form-data" id="AddItemForm">
-
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="card">
-                                <div class="card-body">
-
-                                    <div class="ai-alert"></div>
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Product Category</label>
-                                                <select class="form-control custom-select" name="item-product-category" id="item-product-category"></select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Item Number</label>
-                                                <input type="text" name="item-number" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Item Name</label>
-                                                <input type="text" name="item-name" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label>Status</label>
-                                                <select class="form-control" name="item-status">
-                                                    <option value="0">Choose</option>
-                                                    <option value="1">ACTIVE</option>
-                                                    <option value="2">DISABLED</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Description</label>
-                                        <textarea rows="10" cols="5" name="item-description" class="form-control"></textarea>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <label>Quantity</label>
-                                            <input type="number" name="item-quantity" class="form-control">
-                                        </div>
-                                        <div class="col">
-                                            <label>Unit Price</label>
-                                            <input type="text" name="item-unit-price" class="form-control">
-                                        </div>
-                                        <div class="col">
-                                            <label>Total Stock</label>
-                                            <input type="text" name="item-total-stock" class="form-control">
-                                        </div>
-                                        <div class="col">
-                                            <label>Discount %</label>
-                                            <input type="text" name="item-discount" class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#AddItemModal">Add New Item</button>
                         </div>
-
-                        <div class="col-md-3">
-                            <div class="card" style="height:453px">
-                                <div class="card-body">
-                                    <div class="item-image text-center">
-                                        <h1 class="mdi mdi-shopping" style="font-size:250px"></h1>
-                                    </div>
-                                        <br/>
-                                    <label>File Upload</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validatedCustomFile" name="item-image">
-                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <button class="btn btn-primary btn-lg" type="submit">Add Item</button>
-                                </div>
-                            </div>
+                        <div class="table-responsive">
+                            <table id="items-listview-dataTables" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Profiling</th>
+                                    <th>Name</th>
+                                    <th>Product Category</th>
+                                    <th>Date & Time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Profiling</th>
+                                    <th>Name</th>
+                                    <th>Product Category</th>
+                                    <th>Date & Time</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
-
-                </form>
+                </div>
                 <!-- ============================================================== -->
                 <!-- Modals -->
                 <!-- ============================================================== -->

@@ -1,6 +1,6 @@
 <?php
 
-    class LOGIN extends DBCon{
+    class LOGIN extends DataBaseClass {
 
         protected $user_id;
         protected $user_name;

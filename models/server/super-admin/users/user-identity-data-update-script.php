@@ -1,7 +1,7 @@
 <?php
 
-    include '../../../sessions.php';
-    include '../../../constants.php';
+    include '../../../../config/sessions.php';
+    include '../../../../config/constants.php';
 
     if(isset($_POST["user_id"]) && isset($_FILES["user_profile"]) && isset($_FILES["user_id_profile"])){
 
@@ -10,10 +10,10 @@
         $valid_format = ["png", "jpg", "jpeg"];
 
         // database connection
-        require('../../../../db/db-config.php');
+        require('../../../../db/DataBaseClass.php');
 
         // Users Class
-        require("../../../../models/server/super-admin/users/UsersClass.php");
+        require("../../../../controllers/UsersClass.php");
 
         // user profile
         if(!empty($_FILES["user_profile"]["name"]) || ($_FILES["user_profile"]["name"]) != ""){

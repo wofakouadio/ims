@@ -1,7 +1,7 @@
 <?php
 
-    include '../../../sessions.php';
-    include '../../../constants.php';
+    include '../../../../config/sessions.php';
+    include '../../../../config/constants.php';
 
     if(isset($_POST["user_fullname"]) && isset($_POST["user_dob"]) && isset($_POST["user_gender"]) && isset($_POST["user_placeOfBirth"]) && isset($_POST["user_address1"]) && isset($_POST["user_address2"]) && isset($_POST["user_mobile"]) && isset($_POST["user_contact"]) && isset($_POST["user_email"]) && isset($_POST["user_type"]) && isset($_FILES["user_profile"]) && isset($_FILES["user_id_profile"])){
 
@@ -85,10 +85,10 @@
         }else{
 
             // database connection
-            require('../../../../db/db-config.php');
+            require('../../../../db/DataBaseClass.php');
 
             // Users Class
-            require("../../../../models/server/super-admin/users/UsersClass.php");
+            require("../../../../controllers/UsersClass.php");
 
             $UserObject = new Users;
             $user_id = $UserObject->UserID();

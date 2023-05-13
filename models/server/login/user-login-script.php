@@ -3,7 +3,7 @@
     session_start();
 
     // include Sanitize function
-    require("../../constants.php");
+    require("../../../config/constants.php");
 
     if(isset($_POST["u-name"]) && isset($_POST["u-pass"])){
 
@@ -24,8 +24,8 @@
         }else{
 
             // include db & login classes
-            require("../../../db/db-config.php");
-            require("../../../models/server/login/login-class.php");
+            require("../../../db/DataBaseClass.php");
+            require("../../../controllers/LoginClass.php");
 
             // instantiate login class
             $UserLogin = new LOGIN;

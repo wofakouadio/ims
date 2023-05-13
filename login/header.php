@@ -1,4 +1,4 @@
-<?php include '../models/constants.php';?>
+<?php include '../config/constants.php';?>
 
 <!DOCTYPE html>
 <html dir="ltr">

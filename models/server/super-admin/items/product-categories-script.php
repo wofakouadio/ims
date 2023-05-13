@@ -1,13 +1,13 @@
 <?php
 
-    include '../../../sessions.php';
-    include '../../../constants.php';
+    include '../../../../config/sessions.php';
+    include '../../../../config/constants.php';
 
         // database connection
-        require('../../../../db/db-config.php');
+        require('../../../../db/DataBaseClass.php');
 
         // Items Class
-        require("../../../../models/server/super-admin/items/ItemsClass.php");
+        require("../../../../controllers/ItemsClass.php");
 
         $ProductCategoryObject = new Items;
 

@@ -1,5 +1,5 @@
-<?php include '../models/sessions.php';?>
-<?php include '../models/constants.php';?>
+<?php include '../config/sessions.php';?>
+<?php include '../config/constants.php';?>
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -17,7 +17,8 @@
     <!-- Charts -->
     <link href="../layouts/assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- dataTables -->
-    <!-- <link href="../layouts/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet"> -->
+<!--    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">-->
+<!--     <link href="../layouts/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">-->
     <link href="../layouts/dist/DataTables/datatables.min.css" rel="stylesheet">
     <!-- toastr alert -->
     <link href="../layouts/assets/libs/toastr/build/toastr.min.css" rel="stylesheet">
@@ -31,6 +32,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+    <style>
+        input{
+            height: 40px;
+        }
+    </style>
 </head>
 
 <body>
