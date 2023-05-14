@@ -71,7 +71,7 @@ $(document).ready(()=>{
                 if(item_data.data.item_file != "imageNotAvailable.jpg")
                     modal.find(".item-img-file").html('<img src="../../../items-files/'+item_number+'/'+item_data.data.item_file+'" class="img" width=365px height=365px>')
                 else
-                    modal.find(".item-img-file").html('<img src="../../../items-files/imageNotAvailable.jpg" class="img" width=365px height=365px>')
+                    modal.find(".item-img-file").html('<img src="../../../../items-files/imageNotAvailable.jpg" class="img" width=365px height=365px>')
                 modal.find("select[name=item-product-category]").val(item_data.data.item_product_category)
                 modal.find("select[name=item-product-category]").val(item_data.data.item_product_category)
             }

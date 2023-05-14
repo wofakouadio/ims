@@ -108,8 +108,8 @@ $(document).ready(()=>{
                     let user_data = JSON.parse(UserData_Response)
                     modal.find("input[name=user_fullname]").val(user_data.data.user_fullname)
                     modal.find("input[name=user_id]").val(user_id)
-                    modal.find(".user-profile").html("<img src='../../../user-files/"+user_data.data.user_profile+"' width='150px' class='img'>")
-                    modal.find(".user-id-profile").html("<img src='../../../user-files/"+user_data.data.user_id_profile+"' width='150px' class='img'>")
+                    modal.find(".user-profile").html("<img src="+user_data.data.user_profile+"'../../../../user-files' width='150px' class='img'>")
+                    modal.find(".user-id-profile").html("<img src="+user_data.data.user_id_profile+"'../../../../user-files' width='150px' class='img'>")
                 }
             })
 
