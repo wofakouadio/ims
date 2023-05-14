@@ -109,3 +109,6 @@
     <!-- End Wrapper -->
     <!-- ============================================================== -->
     <?php require("footer.php");?>
+    <!--  custom script for this page  -->
+    <script src="../models/js/super-admin/sa-users-script.js"></script>
+    <script src="../models/js/super-admin/sa-users-dataTable.js"></script>
