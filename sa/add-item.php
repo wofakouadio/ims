@@ -103,5 +103,5 @@
     <!-- ============================================================== -->
     <?php require("footer.php");?>
     <!--  custom script for this page  -->
-    <script src="../models/super-admin/super-admin/sa-items-script.js"></script>
-    <script src="../models/super-admin/super-admin/sa-items-dataTable.js"></script>
+    <script src="../models/super-admin/items/js/sa-items-script.js"></script>
+    <script src="../models/super-admin/items/js/sa-items-dataTable.js"></script>

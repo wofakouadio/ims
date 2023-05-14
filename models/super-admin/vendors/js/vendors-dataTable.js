@@ -16,7 +16,7 @@ $(document).ready(()=>{
         processing: true,
         serverSide: true,
         ajax:{
-            url:'../models/server/super-admin/vendors/vendors-listview-dataTables.php',
+            url:'../models/super-admin/vendors/js/vendors-listview-dataTables.php',
         }
     });
 

@@ -16,7 +16,7 @@ $(document).ready(()=>{
         processing: true,
         serverSide: true,
         ajax:{
-            url:'../models/server/super-admin/items/items-listview-dataTables.php',
+            url:'../models/super-admin/items/server/items-listview-dataTables.php',
         }
     });
 

@@ -12,7 +12,7 @@ $(document).ready(()=>{
     // Load product categories
     const ProductCategories = () =>{
         $.ajax({
-            url:"../models/server/super-admin/items/product-categories-script.php",
+            url:"../models/super-admin/items/server/product-categories-script.php",
             cache:false,
             success:(data)=>{
                 // $("#item-product-category").html(data)
@@ -27,7 +27,7 @@ $(document).ready(()=>{
         e.preventDefault()
         let form_data = $("#AddItemForm")[0];
         $.ajax({
-            url: '../models/server/super-admin/items/add-item-script.php',
+            url: '../models/super-admin/items/server/add-item-script.php',
             method:'POST',
             cache:false,
             contentType:false,
@@ -54,7 +54,7 @@ $(document).ready(()=>{
         let item_number = element.data("item_number")
         let modal = $("#ViewUpdateItemModal")
         $.ajax({
-            url:'../models/server/super-admin/items/fetch-item-data-script.php',
+            url:'../models/super-admin/items/server/fetch-item-data-script.php',
             method:'GET',
             cache:false,
             data:{"item-number":item_number},
@@ -80,7 +80,7 @@ $(document).ready(()=>{
     //function to get item detail
     function TestingItemFile(item_number){
         $.ajax({
-            url:'../models/server/super-admin/items/testing-item-script.php',
+            url:'../models/super-admin/items/server/testing-item-script.php',
             method:'GET',
             cache:false,
             data:{"item-number":item_number},
