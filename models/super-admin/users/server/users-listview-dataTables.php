@@ -23,7 +23,7 @@
             'db' => 'user_profile',
             'dt' => 0,
             'formatter' => function ($d) {
-                if (file_exists("../../../../user-files/$d")) {
+                if (file_exists("../../../../user-files/$d") === true) {
                     return '<img src="../../../../user-files/'.$d.'" class="img rounded" width="50px"/>';
                 } else {
                     return '<img src="../../../../user-files/user-default-profile.png" class="img rounded" width="50px"/>';

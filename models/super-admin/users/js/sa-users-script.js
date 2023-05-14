@@ -9,7 +9,7 @@ $(document).ready(()=>{
                 e.preventDefault()
                 let form_data = $("#NewUserForm")[0]
                 $.ajax({
-                    url:'../models/server/super-admin/users/new-user-script.php',
+                    url:'../models/super-admin/users/server/new-user-script.php',
                     method:'POST',
                     cache:false,
                     contentType:false,
@@ -47,7 +47,7 @@ $(document).ready(()=>{
             let modal = $("#UserAccountUpdate")
             let user_id = str.data("user_id")
             $.ajax({
-                url:'../models/server/super-admin/users/user-data-script.php',
+                url:'../models/super-admin/users/server/user-data-script.php',
                 method:'GET',
                 cache:false,
                 data:{user_id:user_id},
@@ -72,7 +72,7 @@ $(document).ready(()=>{
 
             e.preventDefault()
             $.ajax({
-                url:'../models/server/super-admin/users/user-info-data-update-script.php',
+                url:'../models/super-admin/users/server/user-info-data-update-script.php',
                 method:'POST',
                 cache:false,
                 data: $("#UserAccountUpdateForm").serialize(),
@@ -100,7 +100,7 @@ $(document).ready(()=>{
             let user_id = str.data("user_id");
             let modal = $("#UserIdentityUpdate")
             $.ajax({
-                url:'../models/server/super-admin/users/user-data-script.php',
+                url:'../models/super-admin/users/server/user-data-script.php',
                 method:'GET',
                 cache:false,
                 data:{user_id:user_id},
@@ -123,7 +123,7 @@ $(document).ready(()=>{
 
             e.preventDefault()
             $.ajax({
-                url:'../models/server/super-admin/users/user-identity-data-update-script.php',
+                url:'../models/super-admin/users/server/user-identity-data-update-script.php',
                 method:'POST',
                 contentType:false,
                 processData:false,
@@ -153,7 +153,7 @@ $(document).ready(()=>{
             let user_id = str.data("user_id")
             let modal = $("#UserAccountType")
             $.ajax({
-                url:'../models/server/super-admin/users/user-data-script.php',
+                url:'../models/super-admin/users/server/user-data-script.php',
                 method:'GET',
                 cache:false,
                 data:{user_id:user_id},
@@ -171,7 +171,7 @@ $(document).ready(()=>{
 
             e.preventDefault()
             $.ajax({
-                url:'../models/server/super-admin/users/user-type-data-update-script.php',
+                url:'../models/super-admin/users/server/user-type-data-update-script.php',
                 cache:false,
                 method:'POST',
                 data: $("#UserAccountTypeForm").serialize(),
@@ -198,7 +198,7 @@ $(document).ready(()=>{
             let user_id = str.data("user_id")
             let modal = $("#UserAccountStatus")
             $.ajax({
-                url:'../models/server/super-admin/users/user-data-script.php',
+                url:'../models/super-admin/users/server/user-data-script.php',
                 method:'GET',
                 cache:false,
                 data:{user_id:user_id},
@@ -216,7 +216,7 @@ $(document).ready(()=>{
 
             e.preventDefault()
             $.ajax({
-                url:'../models/server/super-admin/users/user-status-data-update-script.php',
+                url:'../models/super-admin/users/server/user-status-data-update-script.php',
                 cache:false,
                 method:'POST',
                 data: $("#UserAccountStatusForm").serialize(),
@@ -243,7 +243,7 @@ $(document).ready(()=>{
             let user_id = str.data("user_id")
             let modal = $("#UserAccountReset")
             $.ajax({
-                url:'../models/server/super-admin/users/user-data-script.php',
+                url:'../models/super-admin/users/server/user-data-script.php',
                 method:'GET',
                 cache:false,
                 data:{user_id:user_id},
@@ -260,7 +260,7 @@ $(document).ready(()=>{
 
             e.preventDefault()
             $.ajax({
-                url:'../models/server/super-admin/users/user-reset-data-update-script.php',
+                url:'../models/super-admin/users/server/user-reset-data-update-script.php',
                 cache:false,
                 method:'POST',
                 data: $("#UserAccountResetForm").serialize(),
@@ -287,7 +287,7 @@ $(document).ready(()=>{
             let user_id = str.data("user_id")
             let modal = $("#UserAccountDelete")
             $.ajax({
-                url:'../models/server/super-admin/users/user-data-script.php',
+                url:'../models/super-admin/users/server/user-data-script.php',
                 method:'GET',
                 cache:false,
                 data:{user_id:user_id},
@@ -304,7 +304,7 @@ $(document).ready(()=>{
 
             e.preventDefault()
             $.ajax({
-                url:'../models/server/super-admin/users/user-delete-data-update-script.php',
+                url:'../models/super-admin/users/server/user-delete-data-update-script.php',
                 cache:false,
                 method:'POST',
                 data: $("#UserAccountDeleteForm").serialize(),

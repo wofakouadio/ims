@@ -47,7 +47,7 @@ $("document").ready(()=>{
 
             e.preventDefault()
             $.ajax({
-                url:'../models/server/login/user-verification-script.php',
+                url:'../models/login/server/user-verification-script.php',
                 method:'POST',
                 cache:false,
                 data: $("#verification-form").serialize(),
@@ -82,7 +82,7 @@ $("document").ready(()=>{
 
             e.preventDefault();
             $.ajax({
-                url:'../models/server/login/user-login-script.php',
+                url:'../models/login/server/user-login-script.php',
                 method: 'POST',
                 cache: false,
                 data: $("#login-form").serialize(),
@@ -116,7 +116,7 @@ $("document").ready(()=>{
             e.preventDefault()
 
             $.ajax({
-                url:'../models/server/login/user-create-password-script.php',
+                url:'../models/login/server/user-create-password-script.php',
                 method: 'POST',
                 cache: false,
                 data: $("#create-password-form").serialize(),

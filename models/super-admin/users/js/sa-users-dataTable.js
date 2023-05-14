@@ -22,7 +22,7 @@ $(document).ready(()=>{
         processing: true,
         serverSide: true,
         ajax:{
-            url:'../models/server/super-admin/users/usersListviewDataTables.php',
+            url:'../models/super-admin/users/server/usersListviewDataTables.php',
             method: 'GET'
         }
     });
@@ -38,7 +38,7 @@ $(document).ready(()=>{
         processing: true,
         serverSide: true,
         ajax:{
-            url:'../models/server/super-admin/users/users-listview-dataTables.php',
+            url:'../models/super-admin/users/server/users-listview-dataTables.php',
             method: 'GET'
         }
     });
