@@ -103,5 +103,5 @@
     <!-- ============================================================== -->
     <?php require("footer.php");?>
     <!--  custom script for this page  -->
-    <script src="../models/js/super-admin/sa-vendors-script.js"></script>
-    <script src="../models/js/super-admin/sa-vendors-dataTable.js"></script>
+    <script src="../models/js/super-admin/vendors-script.js"></script>
+    <script src="../models/js/super-admin/vendors-dataTable.js"></script>
