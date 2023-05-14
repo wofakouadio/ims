@@ -36,8 +36,7 @@
     <script src="../layouts/assets/libs/select2/dist/js/select2.full.min.js"></script>
     <script src="../layouts/assets/libs/select2/dist/js/select2.min.js"></script>
     <!-- custom scripts -->
-    <script src="../models/js/super-admin/sa-script.js"></script>
-    <script src="../models/js/super-admin/sa-dataTable.js"></script>
+    <script src="../layouts/custom-script.js"></script>
 
 </body>
 
