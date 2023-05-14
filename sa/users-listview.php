@@ -110,5 +110,5 @@
     <!-- ============================================================== -->
     <?php require("footer.php");?>
     <!--  custom script for this page  -->
-    <script src="../models/js/super-admin/sa-users-script.js"></script>
-    <script src="../models/js/super-admin/sa-users-dataTable.js"></script>
+    <script src="../models/super-admin/super-admin/sa-users-script.js"></script>
+    <script src="../models/super-admin/super-admin/sa-users-dataTable.js"></script>
