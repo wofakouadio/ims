@@ -18,61 +18,61 @@
     }
 
     // function to check if password contain uppercase characters
-function ValidatePasswordUppercase($data){
+    function ValidatePasswordUppercase($data){
 
-    if(!preg_match('@[A-Z]@', $data)) return false;
-    else return true;
+        if(!preg_match('@[A-Z]@', $data)) return false;
+        else return true;
 
-}
-
-// function to check if password contain lowercase characters
-function ValidatePasswordLowercase($data){
-
-    if(!preg_match('@[a-z]@', $data)) return false;
-    else return true;
-
-}
-
-
-// function to check if password contain digits
-function ValidatePasswordDigit($data){
-
-    if(!preg_match('@[0-9]@', $data)) return false;
-    else return true;
-
-}
-
-// function check password length
-function ValidatePasswordLength($data){
-
-    if(strlen($data) < 8) return false;
-    else return true;
-
-}
-
-// function check password has special characters
-function ValidatePasswordSpecialCharacters($data){
-
-    if(!preg_match('@[^\w]@', $data)) return false;
-    else return true;
-
-}
-
-// function to compress image
-function ImageCompression($image_source, $image_compress)
-{
-
-    $image_info = getimagesize($image_source);
-    if ($image_info["mime"] == "image/jpeg") {
-        $image_source = imagecreatefromjpeg($image_source);
-        imagejpeg($image_source, $image_compress, 35);
-    } elseif ($image_info["mime"] == "image/png") {
-        $image_source = imagecreatefrompng($image_source);
-        imagepng($image_source, $image_compress, 6);
-    } else {
-        $image_source = imagecreatefromjpeg($image_source);
-        imagejpeg($image_source, $image_compress, 35);
     }
 
-    return $image_compress;
-}
+    // function to check if password contain lowercase characters
+    function ValidatePasswordLowercase($data){
+
+        if(!preg_match('@[a-z]@', $data)) return false;
+        else return true;
+
+    }
+
+
+    // function to check if password contain digits
+    function ValidatePasswordDigit($data){
+
+        if(!preg_match('@[0-9]@', $data)) return false;
+        else return true;
+
+    }
+
+    // function check password length
+    function ValidatePasswordLength($data){
+
+        if(strlen($data) < 8) return false;
+        else return true;
+
+    }
+
+    // function check password has special characters
+    function ValidatePasswordSpecialCharacters($data){
+
+        if(!preg_match('@[^\w]@', $data)) return false;
+        else return true;
+
+    }
+
+    // function to compress image
+    function ImageCompression($image_source, $image_compress)
+    {
+
+        $image_info = getimagesize($image_source);
+        if ($image_info["mime"] == "image/jpeg") {
+            $image_source = imagecreatefromjpeg($image_source);
+            imagejpeg($image_source, $image_compress, 35);
+        } elseif ($image_info["mime"] == "image/png") {
+            $image_source = imagecreatefrompng($image_source);
+            imagepng($image_source, $image_compress, 6);
+        } else {
+            $image_source = imagecreatefromjpeg($image_source);
+            imagejpeg($image_source, $image_compress, 35);
+        }
+
+        return $image_compress;
+    }
