@@ -61,9 +61,9 @@
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="form-basic.html" class="sidebar-link">
+                            <a href="add-new-vendor" class="sidebar-link">
                                 <i class="mdi mdi-note-outline"></i>
-                                <span class="hide-menu"> Form Basic </span>
+                                <span class="hide-menu"> New Vendor </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
